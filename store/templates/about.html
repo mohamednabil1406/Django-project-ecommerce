@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Header Section -->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder welcome-text">ABOUT US</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Welcome to NABI ELECTRONICS – Your Trusted Tech Partner</p>
+        </div>
+    </div>
+</header>
+
+<!-- About Section -->
+<section class="py-5">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 mb-4">
+                <img class="img-fluid rounded w-100 h-auto" src="{% static 'assets/about_us.jpg' %}" alt="About NABI Electronics">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bolder">Who We Are</h2>
+                <p class="lead">At <strong>NABI ELECTRONICS</strong>, we specialize in bringing the latest and most reliable electronics directly to your door. From smart gadgets to essential home appliances, we make technology accessible, affordable, and simple.</p>
+                <p>Founded with a passion for innovation and customer satisfaction, our platform offers a seamless shopping experience backed by quality assurance and friendly support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<!-- Contact Info or Call to Action -->
+<section class="py-5 bg-dark text-white text-center">
+    <div class="container px-4 px-lg-5">
+        <h3 class="fw-bolder">Have Questions?</h3>
+        <p class="lead">Feel free to <a href="#" class="text-warning">contact us</a> or visit our support center. We’re here to help!</p>
+        <p>Email: <a href="mailto:support@nabielectronics.com" class="text-light">support@nabielectronics.com</a> | Phone: +91-9876543210</p>
+    </div>
+</section>
+{% endblock %}
