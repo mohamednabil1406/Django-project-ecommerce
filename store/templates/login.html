@@ -1,70 +1,40 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - NABI ELECTRONICS</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <style>
-        body {
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .login-container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 420px;
-        }
-        .form-check-label {
-            user-select: none;
-        }
-    </style>
-</head>
-<body>
 
-<div class="login-container">
-    <h3 class="text-center mb-4">Login</h3>
-
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-
-    <form method="POST">
-        {% csrf_token %}
-        
-        <div class="mb-3">
-            <label for="username" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp" required>
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+{% block content %}
+<!-- Header Section -->
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder welcome-text">LOGIN</h1>
+            <p class="lead fw-normal text-white-50 mb-0">
+                Login to your Account – Your Trusted Tech Partner
+            </p>
         </div>
+    </div>
+</header>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
+<!-- Login Form Section -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address :</label>
+                    <input type="text" class="form-control" name="Username" placeholder="Enter Your Username" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">
+                    
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password :</label>
+                    <input type="password" class="form-control" name="User Password" placeholder="Enter Your Password" aria-describedby="passwordHelpBlock">
+                </div>
+                <button type="submit" class="btn btn-secondary w-100">Login</button>
+            </form>
         </div>
-
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="rememberMe">
-            <label class="form-check-label" for="rememberMe">Remember me</label>
-        </div>
-
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-    </form>
-
-    <div class="text-center mt-3">
-        <small>Don't have an account? <a href="{% url 'login' %}">Sign up</a></small>
     </div>
 </div>
-
-<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-</body>
-</html>
+{% endblock %}
